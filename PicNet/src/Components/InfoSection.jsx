@@ -9,10 +9,10 @@ const InfoSection = () => {
            <div className="info_container">
             <Avatar src={face} alt='image' classnName='info-image' />
             
-            <div className="info_content">
+            <a href="/myProfile" className="info_content">
                 <div className="info_username"><strong>lina_jimenez</strong></div>
                 <div className="info_description">Description</div>
-            </div>
+            </a>
         </div>
         </div>
     )
