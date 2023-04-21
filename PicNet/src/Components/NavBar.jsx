@@ -1,10 +1,11 @@
 import React from 'react';
 import '../Styles/NavBar.css';
+import logo from '../images/LogoPicNet.png'
 
 function NavBar() {
     return (
       <div className="nav">
-        <img src='./' alt="Logo" />
+        <img src={logo} alt="Logo" />
         <ul>
           <li>
             <a href="/">Home</a>
