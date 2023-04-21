@@ -1,0 +1,14 @@
+.info-n-suggestions{
+    position: absolute;
+    right: 0;
+    top: 100;
+}
+.gtid{
+    width: 700px;
+    height: auto;
+}
+
+.slider-container{
+    width: 610px;
+    padding-bottom: 30px;
+}

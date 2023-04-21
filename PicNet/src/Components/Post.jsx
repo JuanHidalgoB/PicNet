@@ -2,7 +2,7 @@ import { useState } from "react";
 /* import "../App.css"; */
 export const Post = () => {
   return (
-    <div className="space-y-4 shadow-xl rounded-xl p-3">
+    <div className="space-y-4 rounded-xl">
       <div className="flex items-center space-x-4">
         <img
           className="w-10 h-10 rounded-full"
@@ -15,7 +15,7 @@ export const Post = () => {
       </div>
       <figure className="min-w-full h-auto">
         <img
-          className="rounded-lg"
+          className="rounded-md"
           src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/content-gallery-3.png"
           alt="image description"
         />

@@ -1,0 +1,23 @@
+.info_container{
+    width: 300px;
+    height: 54px;
+    margin-top: 50px;
+    display: flex;
+}
+.info-image{
+    max-width: 60px ;
+    min-width: 60px;
+}
+
+.info_content{
+    margin-left: 20px;
+}
+
+.info_username{
+    margin: 5px;
+}
+
+.info_description{
+    margin: 5px;
+    color: #8e8e8e;
+}
