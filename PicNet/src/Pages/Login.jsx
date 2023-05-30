@@ -13,7 +13,7 @@ export const Login = () => {
       <div className="items-center px-5 py-12 lg:px-20">
         <div className=" flex flex-col w-full max-w-md p-10 mx-auto my-6 transition duration-500 ease-in-out transform bg-white rounded-lg md:mt-0">
           <div className=" mt-8">
-            <h1 htmlFor="Titulo" className="text-4xl font-bold">
+            <h1 className="font-pacifico text-4xl text-black py-5">
               PicNet
             </h1>
             <div className="mt-6">
