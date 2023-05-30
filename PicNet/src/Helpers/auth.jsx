@@ -15,3 +15,17 @@ export const logearUsuario = ({ email, password }) => {
       throw error.response.data;
     });
 };
+
+export const registrarUsuario = ({ name,nickname,email, password }) => {
+
+  const user = {name,nickname,email,password };
+  return axios
+    .post(url + "new", user)
+    .then((res) => {
+      return res.data;
+    })
+    .catch((error) => {
+      throw error.response.data;
+    });
+};
+

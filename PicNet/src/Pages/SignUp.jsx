@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { registrarUsuario } from "../Helpers/auth";
 import axios from "axios";
 
 export const SignUp = () => {
@@ -16,7 +17,13 @@ export const SignUp = () => {
     e.preventDefault();
 
     const newUser = { name, nickname, email, password };
-    axios
+    registrarUsuario(newUser,navigate).then((res)=>{
+        console.log(res)
+        navigate("/login");
+    }).catch((error)=>{
+        console.log(error)
+    })
+/*     axios
       .post(url + "new", newUser)
       .then((res) => {
         console.log(res.data);
@@ -24,7 +31,7 @@ export const SignUp = () => {
       })
       .catch((e) => {
         console.log(e.response.data);
-      });
+      }); */
   };
 
   return (
