@@ -14,7 +14,7 @@ function NavBar() {
               <a href="/search">Search</a>
           </li>
           <li>
-            <a href="/chats">Chats</a>
+            <a href="/chat">Chats</a>
           </li>
           <li>
             <a href="/create">Create</a>
