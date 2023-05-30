@@ -5,7 +5,8 @@ import logo from '../images/LogoPicNet.png'
 function NavBar() {
     return (
       <div className="nav">
-        <img src={logo} alt="Logo" />
+        <h1 className='font-pacifico text-4xl text-black pl-3 py-5'>PicNet</h1>
+        {/* <img src={logo} alt="Logo" /> */}
         <ul>
           <li>
             <a href="/home">Home</a>
