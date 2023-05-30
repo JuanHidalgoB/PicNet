@@ -32,7 +32,7 @@ export const Profile = () => {
           </span>
 
           <a href="#" className="bg-rosa-100 px-2 py-1 
-                        text-white font-semibold text-sm rounded block text-center 
+                        text-white font-semibold text-sm rounded-full block text-center 
                         sm:inline-block block">Follow</a>
         </div>
 
