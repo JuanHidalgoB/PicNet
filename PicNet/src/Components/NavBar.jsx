@@ -24,7 +24,7 @@ function NavBar() {
             <a href="/profile">Profile</a>
           </li>
           <li>
-            <a href="/logout">Log out</a>
+            <a href="/login">Log out</a>
           </li>
         </ul>
       </div>
