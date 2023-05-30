@@ -1,36 +1,28 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { logearUsuario } from "../Helpers/auth";
 
 export const Login = () => {
-  const url = "http://localhost:4000/api/auth/";
   const navigate = useNavigate();
 
-  const [name,setName ]=useState('')
-  const [email,setEmail ]=useState('')
-  const [password,setPassword ]=useState('')
-
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const onLogIn = (e) => {
     e.preventDefault();
-    const user = {email,password}
-    axios.post(url+"login",user).then(res => {
-      console.log(res.data)
-      alert(res.data.ok)
-    }).catch(error => {
-      console.log('Error al realizar la solicitud:', error.response.data);
-      alert(error.response.data.msg)
-      // Manejar el error
-    })
+    const user = { email, password };
 
-
-
-    // Redireccionamos al usuario a la página Home
-    //navigate("/home");
+    logearUsuario(user,navigate)
+      .then((data) => {
+        console.log(data);
+        navigate("/home");
+      })
+      .catch((e) => {
+        console.log(e);
+        alert(e.msg)
+      });
   };
-
-
 
   return (
     <section className="loginCard shadow-xl rounded-3xl">
@@ -39,7 +31,7 @@ export const Login = () => {
           <div className=" mt-8">
             <h1 className="font-pacifico text-4xl text-black py-5">PicNet</h1>
             <div className="mt-6">
-              <form onSubmit={onLogIn}className="space-y-6">
+              <form onSubmit={onLogIn} className="space-y-6">
                 <div>
                   <label
                     htmlFor="email"
@@ -50,7 +42,10 @@ export const Login = () => {
                   </label>
                   <div className="mt-1">
                     <input
-                    onChange={(e)=>{setEmail(e.target.value)}}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                      }}
+                      value={email}
                       id="email"
                       name="email"
                       type="email"
@@ -72,7 +67,9 @@ export const Login = () => {
                   </label>
                   <div className="mt-1">
                     <input
-                      onChange={(e)=>{setPassword(e.target.value)}}
+                      onChange={(e) => {
+                        setPassword(e.target.value);
+                      }}
                       id="password"
                       name="password"
                       type="password"

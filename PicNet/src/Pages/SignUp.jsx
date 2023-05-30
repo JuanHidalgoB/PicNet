@@ -1,15 +1,40 @@
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
+
 export const SignUp = () => {
+    
+  const url = "http://localhost:4000/api/auth/";
+  const navigate = useNavigate();
+
+  const [name, setName] = useState("");
+  const [nickname, setNickname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const onSignUp = (e) => {
+    e.preventDefault();
+
+    const newUser = { name, nickname, email, password };
+    axios
+      .post(url + "new", newUser)
+      .then((res) => {
+        console.log(res.data);
+        navigate("/login");
+      })
+      .catch((e) => {
+        console.log(e.response.data);
+      });
+  };
 
   return (
     <section className="loginCard shadow-xl rounded-3xl">
-      <div className="items-center px-5 py-12 lg:px-20">
+      <div className="items-center px-5 lg:px-20">
         <div className=" flex flex-col w-full max-w-md p-10 mx-auto my-6 transition duration-500 ease-in-out transform bg-white rounded-lg md:mt-0">
           <div className=" mt-8">
             <h1 className="font-pacifico text-4xl text-black py-5">PicNet</h1>
             <div className="mt-6">
-              <form /* onSubmit={onLogIn} */ className="space-y-6">
-
-
+              <form onSubmit={onSignUp} className="space-y-6">
                 <div className="space-y-1">
                   <label
                     htmlFor="Name"
@@ -20,9 +45,9 @@ export const SignUp = () => {
                   </label>
                   <div className="mt-1">
                     <input
-                      /*  onChange={(e) => {
-                        setEmail(e.target.value);
-                      }} */
+                      onChange={(e) => {
+                        setName(e.target.value);
+                      }}
                       id="name"
                       name="name"
                       type="name"
@@ -33,8 +58,6 @@ export const SignUp = () => {
                     />
                   </div>
                 </div>
-
-
 
                 <div className="space-y-1">
                   <label
@@ -46,20 +69,19 @@ export const SignUp = () => {
                   </label>
                   <div className="mt-1">
                     <input
-                      /*  onChange={(e) => {
-                        setEmail(e.target.value);
-                      }} */
-                      id="name"
-                      name="name"
-                      type="name"
-                      autoomplete="name"
+                      onChange={(e) => {
+                        setNickname(e.target.value);
+                      }}
+                      id="nickname"
+                      name="nickname"
+                      type="nickname"
+                      autoomplete="nickname"
                       required=""
-                      placeholder="Your name"
+                      placeholder="@nickname"
                       className="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"
                     />
                   </div>
                 </div>
-
 
                 <div className="space-y-1">
                   <label
@@ -71,9 +93,9 @@ export const SignUp = () => {
                   </label>
 
                   <input
-                    /*  onChange={(e) => {
-                        setEmail(e.target.value);
-                      }} */
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
                     id="email"
                     name="email"
                     type="email"
@@ -94,9 +116,9 @@ export const SignUp = () => {
                   </label>
                   <div className="mt-1">
                     <input
-                      /*    onChange={(e) => {
+                      onChange={(e) => {
                         setPassword(e.target.value);
-                      }} */
+                      }}
                       id="password"
                       name="password"
                       type="password"
@@ -113,7 +135,7 @@ export const SignUp = () => {
                     type="submit"
                     className="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-rosa-100 rounded-xl hover:bg-rosa-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rosa-100"
                   >
-                    Log in
+                    Sign up
                   </button>
                 </div>
               </form>
