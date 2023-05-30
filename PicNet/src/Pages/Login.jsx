@@ -1,23 +1,45 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
+
 export const Login = () => {
+  const url = "http://localhost:4000/api/auth/";
   const navigate = useNavigate();
 
-  const onLogIn = () => {
-    // Aquí iría la lógica de autenticación
+  const [name,setName ]=useState('')
+  const [email,setEmail ]=useState('')
+  const [password,setPassword ]=useState('')
+
+
+
+  const onLogIn = (e) => {
+    e.preventDefault();
+    const user = {email,password}
+    axios.post(url+"login",user).then(res => {
+      console.log(res.data)
+      alert(res.data.ok)
+    }).catch(error => {
+      console.log('Error al realizar la solicitud:', error.response.data);
+      alert(error.response.data.msg)
+      // Manejar el error
+    })
+
+
 
     // Redireccionamos al usuario a la página Home
-    navigate("/home");
+    //navigate("/home");
   };
+
+
+
   return (
     <section className="loginCard shadow-xl rounded-3xl">
       <div className="items-center px-5 py-12 lg:px-20">
         <div className=" flex flex-col w-full max-w-md p-10 mx-auto my-6 transition duration-500 ease-in-out transform bg-white rounded-lg md:mt-0">
           <div className=" mt-8">
-            <h1 className="font-pacifico text-4xl text-black py-5">
-              PicNet
-            </h1>
+            <h1 className="font-pacifico text-4xl text-black py-5">PicNet</h1>
             <div className="mt-6">
-              <form className="space-y-6">
+              <form onSubmit={onLogIn}className="space-y-6">
                 <div>
                   <label
                     htmlFor="email"
@@ -28,6 +50,7 @@ export const Login = () => {
                   </label>
                   <div className="mt-1">
                     <input
+                    onChange={(e)=>{setEmail(e.target.value)}}
                       id="email"
                       name="email"
                       type="email"
@@ -49,6 +72,7 @@ export const Login = () => {
                   </label>
                   <div className="mt-1">
                     <input
+                      onChange={(e)=>{setPassword(e.target.value)}}
                       id="password"
                       name="password"
                       type="password"
@@ -63,7 +87,6 @@ export const Login = () => {
                 <div>
                   <button
                     type="submit"
-                    onClick={() => onLogIn()}
                     className="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-rosa-100 rounded-xl hover:bg-rosa-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rosa-100"
                   >
                     Log in
