@@ -6,6 +6,8 @@ import {SignUp} from './Pages/SignUp'
 import {Post} from './Components/Post'
 import moduleName from 'module'
 import NavBar from "./Components/NavBar";
+import { Search } from "./Pages/Search";
+import { Profile } from "./Pages/Profile";
 
 export const App = () => {
   return (
@@ -16,6 +18,8 @@ export const App = () => {
       <Route path="/signup" element={<SignUp/>} />
 
       <Route path="/" element={<Navigate to="/login" />} />
+      <Route path="/search" element={<Search />} />
+      <Route path="/profile" element={<Profile />} />
     </Routes>
   );
 };
