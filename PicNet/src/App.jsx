@@ -7,6 +7,7 @@ import moduleName from 'module'
 import NavBar from "./Components/NavBar";
 import { Search } from "./Pages/Search";
 import { Profile } from "./Pages/Profile";
+import { Create } from "./Pages/Create";
 
 export const App = () => {
   return (
@@ -17,6 +18,7 @@ export const App = () => {
       <Route path="/" element={<Navigate to="/login" />} />
       <Route path="/search" element={<Search />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/create" element={<Create />} />
     </Routes>
   );
 };
