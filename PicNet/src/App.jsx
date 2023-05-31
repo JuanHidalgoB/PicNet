@@ -3,14 +3,13 @@ import { Home } from "./Pages/Home";
 import { Routes, Route, Navigate } from "react-router-dom";
 import {Chat} from './Pages/Chat'
 import {SignUp} from './Pages/SignUp'
-import {Post} from './Components/Post'
-import moduleName from 'module'
-import NavBar from "./Components/NavBar";
 import { Search } from "./Pages/Search";
 import { Profile } from "./Pages/Profile";
 import { Create } from "./Pages/Create";
 
+
 export const App = () => {
+
   return (
     <Routes>
       <Route path="/login" element={<Login />} />

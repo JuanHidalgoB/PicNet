@@ -1,9 +1,12 @@
 import NavBar from "../Components/NavBar"
 import '../Styles/Profile.css'
+import { UsersContext } from "../context/usersContext"
+import {useContext} from 'react'
 import face from '../images/face1.jpg'
 import user from '../images/user.jpg'
 
 export const Profile = () => {
+  const { currentUser } = useContext(UsersContext)
     return <>
     <NavBar/>
     <main className="bg-gray-100 bg-opacity-25">
@@ -22,7 +25,7 @@ export const Profile = () => {
       <div className="w-8/12 md:w-7/12 ml-4">
         <div className="md:flex md:flex-wrap md:items-center mb-4">
           <h2 className="text-3xl inline-block font-light md:mr-2 mb-2 sm:mb-0">
-            mrtravlerrr_
+            {currentUser.nickname}
           </h2>
 
           <span className="inline-block fas fa-certificate fa-lg text-blue-500 
@@ -53,7 +56,7 @@ export const Profile = () => {
         </ul>
 
         <div className="hidden md:block">
-          <h1 className="font-semibold">Mr Travlerrr...</h1>
+          <h1 className="font-semibold">{currentUser.name}</h1>
           <span>Travel, Nature and Music</span>
           <p>Lorem ipsum dolor sit amet consectetur</p>
         </div>
