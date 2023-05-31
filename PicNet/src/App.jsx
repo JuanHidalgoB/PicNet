@@ -7,8 +7,7 @@ import { Search } from "./Pages/Search";
 import { Profile } from "./Pages/Profile";
 import { Create } from "./Pages/Create";
 
-
-export const App = () => {
+  export const App = () => {
 
   return (
     <Routes>

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:4000/api/auth/";
+const url = "https://backend-proyectoweb.up.railway.app/api/auth/";
 
 export const logearUsuario = ({ email, password }) => {
   const user = { email, password };

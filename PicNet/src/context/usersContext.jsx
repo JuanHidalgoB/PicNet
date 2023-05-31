@@ -4,14 +4,10 @@ export const UsersContext = createContext();
 
 export const UsersContextProvider = (props) => {
   const [users, setUsers] = useState([]);
-  const [currentUser, setCurrentUser] = useState({});
-
-/*   var user = {
-    name: "Andres Hidalgo",
-    nickname: "andrew_jungler",
-    email: "andres_hidalgo@gmail.com",
-    password: "123456",
-  }; */
+  const [currentUser, setCurrentUser] = useState(() => {
+    const storedUser = localStorage.getItem("currentUser");
+    return storedUser ? JSON.parse(storedUser) : null;
+  });
 
   useEffect(() => {
     obtenerUsuarios()
@@ -21,8 +17,7 @@ export const UsersContextProvider = (props) => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
-
+  }, [currentUser]);
 
   return (
     <UsersContext.Provider

@@ -16,6 +16,7 @@ export const Login = () => {
     logearUsuario(user, navigate)
       .then((data) => {
         console.log(data);
+        localStorage.setItem("currentUser", JSON.stringify(data.usuario))
         navigate("/home");
       })
       .catch((e) => {

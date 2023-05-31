@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const url = "http://localhost:4000/api/";
+const url = "https://backend-proyectoweb.up.railway.app/api/";
 
 export const obtenerUsuarios = () => {
-    
+
   return axios
     .get(url + "/users")
     .then((response) => {
