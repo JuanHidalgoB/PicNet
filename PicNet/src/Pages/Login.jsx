@@ -88,10 +88,6 @@ export const Login = () => {
                   >
                     Log in
                   </button>
-                  <div className="flex mt-10">
-                    <p className="text-gray-400">Not registered yet? <a className="text-rosa-100" href="/signup">SignUp</a> </p>
-                    
-                  </div>
                 </div>
               </form>
             </div>
