@@ -13,14 +13,14 @@ export const Login = () => {
     e.preventDefault();
     const user = { email, password };
 
-    logearUsuario(user,navigate)
+    logearUsuario(user, navigate)
       .then((data) => {
         console.log(data);
         navigate("/home");
       })
       .catch((e) => {
         console.log(e);
-        alert(e.msg)
+        alert(e.msg);
       });
   };
 
@@ -88,9 +88,14 @@ export const Login = () => {
                   >
                     Log in
                   </button>
+                  
                   <div className="flex mt-10">
-                    <p className="text-gray-400">Not registered yet? <a className="text-rosa-100" href="/signup">SignUp</a> </p>
-
+                    <p className="text-gray-400">
+                      Not registered yet?{" "}
+                      <a className="text-rosa-100" href="/signup">
+                        SignUp
+                      </a>{" "}
+                    </p>
                   </div>
                 </div>
               </form>
